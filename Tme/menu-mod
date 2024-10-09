@@ -1,0 +1,421 @@
+#!/bin/bash
+
+function cL(){
+clear
+}
+
+cL
+
+# // Gettings Info
+function updat(){
+cL
+cd /usr/local/
+rm -rf sbin
+rm -rf /usr/bin/enc
+cd
+mkdir /usr/local/sbin
+dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
+biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
+red() { echo -e "\\033[32;1m${*}\\033[0m"; }
+clear
+fun_bar() {
+    CMD[0]="$1"
+    CMD[1]="$2"
+    (
+        [[ -e $HOME/fim ]] && rm $HOME/fim
+        ${CMD[0]} -y >/dev/null 2>&1
+        ${CMD[1]} -y >/dev/null 2>&1
+        touch $HOME/fim
+    ) >/dev/null 2>&1 &
+    tput civis
+    echo -ne "  \033[0;33mPlease Wait Loading \033[1;37m- \033[0;33m["
+    while true; do
+        for ((i = 0; i < 18; i++)); do
+            echo -ne "\033[0;32m# "
+            sleep 0.1s
+        done
+        [[ -e $HOME/fim ]] && rm $HOME/fim && break
+        echo -e "\033[0;33m]"
+        sleep 1s
+        tput cuu1
+        tput dl1
+        echo -ne "  \033[0;33mPlease Wait Loading \033[1;37m- \033[0;33m["
+    done
+    echo -e "\033[0;33m]\033[1;37m -\033[1;32m OK !\033[1;37m"
+    tput cnorm
+}
+res1() {
+    wget https://raw.githubusercontent.com/LambarVpn/Source/main/Cdy/LT
+    wget -q -O /usr/bin/enc "https://raw.githubusercontent.com/LambarVpn/Source/main/Enc/encrypt" ; chmod +x /usr/bin/enc
+    7z e -paskykenza123 LT
+    unzip LT
+    chmod +x menu/*
+    enc menu/*
+    mv menu/* /usr/local/sbin
+    rm -rf menu
+    rm -rf LT
+    rm -rf menu.zip
+    rm -rf update.sh
+    rm -rf update
+    rm -rf /root/menu
+    rm -rf /root/menu.zip
+    rm -rf /root/update.sh
+    rm -rf /root/welcome
+    rm -rf /root/change-limit-xray
+    rm -rf /root/change-ip-limit
+    rm -rf /root/change-domain
+    rm -rf /root/fixhap
+    rm -rf /root/fixcert
+    rm -rf /root/xtra-menu
+    rm -rf /root/others
+    rm -rf /root/manager
+    rm -rf /root/m-ftr
+    rm -rf /root/m-bkp
+    rm -rf /root/m-bot
+    rm -rf /root/m-ssh
+    rm -rf /root/m-ssr
+    rm -rf /root/m-vme
+    rm -rf /root/m-vle
+    rm -rf /root/m-tro
+    rm -rf /root/mbot
+    rm -rf /root/m-panel
+    rm -rf /root/add-bot-notif
+    rm -rf /root/add-ip
+    rm -rf /root/add-ssh
+    rm -rf /root/add-vme
+    rm -rf /root/add-vle
+    rm -rf /root/add-ssr
+    rm -rf /root/auto-kill
+    rm -rf /root/autobackup
+    rm -rf /root/autoreboot
+    rm -rf /root/clearcache
+    rm -rf /root/clearlog
+    rm -rf /root/backup
+    rm -rf /root/restore
+    rm -rf /root/cek-ssh
+    rm -rf /root/cek-ssr
+    rm -rf /root/cek-vle
+    rm -rf /root/cek-vme
+    rm -rf /root/cek-tro
+    rm -rf /root/member-ssh
+    rm -rf /root/member-vme
+    rm -rf /root/member-vle
+    rm -rf /root/member-tro
+    rm -rf /root/membee-ssr
+    rm -rf /root/user-ssh
+    rm -rf /root/user-ssr
+    rm -rf /root/user-vme
+    rm -rf /root/user-vle
+    rm -rf /root/user-tro
+    rm -rf /root/renew-ssh
+    rm -rf /root/renew-ssr
+    rm -rf /root/renew-vme
+    rm -rf /root/renew-vle
+    rm -rf /root/renew-tro
+    rm -rf /root/trial-ssh
+    rm -rf /root/trial-vle
+    rm -rf /root/trial-ssr
+    rm -rf /root/trial-vme
+    rm -rf /root/trial-tro
+    rm -rf /root/delexp
+    rm -rf /root/xp
+    rm -rf /root/member
+    rm -rf /root/tendang
+    rm -rf /root/speedtest
+    rm -rf /root/run
+    rm -rf /root/reset
+    rm -rf /root/gotop
+    rm -rf /root/prot
+    rm -rf /root/mullog
+    rm -rf /root/Lt-on-off
+    rm -rf /root/limitspeed
+    rm -rf /root/limitssh-ip
+    rm -rf /root/lock-vmess
+    rm -rf /root/lock-xray-ip
+    rm -rf /root/lock
+    rm -rf /root/unlock
+    rm -rf /root/ganti-ip-ssh
+    rm -rf /root/ganti-ip-vmess
+    rm -rf /root/ganti-ip-vless
+    rm -rf /root/ganti-ip-trojan
+    rm -rf /root/del-ssh
+    rm -rf /root/del-vme
+    rm -rf /root/del-vle
+    rm -rf /root/del-ssr
+    rm -rf /root/del-tro
+    rm -rf /root/create-bot-notif
+    rm -rf /root/hapus-bot-notif
+    rm -rf /root/ceklim
+    rm -rf /root/about
+    rm -rf /root/limit-on-off
+    rm -rf /root/killtrial
+    rm -rf /root/hapus-bot
+    rm -rf /root/delet-cache-file
+    rm -rf /root/del-bot-notif
+    rm -rf /root/change-vmess-qouta
+    rm -rf /root/change-vless-qouta
+    rm -rf /root/change-trojan-qouta
+    rm -rf /root/cf
+    rm -rf /root/cf
+    rm -rf /root/bot
+    rm -rf /root/add-tro
+    rm -rf /root/add-ip-bot
+    rm -rf /root/about
+    rm -rf /root/UDEPE
+    rm -rf /root/Bot-Domain
+    rm -rf /root/menu-noobzvpns
+    rm -rf /root/welcome.bak
+    rm -rf /root/scdomain
+    rm -rf /root/menu-tai
+    rm -rf /root/menu-mentahan
+    rm -rf /root/Neo
+    rm -rf /root/m-xray
+    rm -rf /root/menu.bak
+    rm -rf /root/del-bot-notif
+    rm -rf /root/delet-cache-file
+    rm -rf /root/bot
+    rm -rf /root/backup
+    rm -rf /root/auto-kill
+    rm -rf /root/autoreboot
+    rm -rf /root/auto-backup
+    rm -rf /root/add-ip-bot
+    rm -rf /root/ipbot
+    rm -rf /root/cf
+    rm -rf /root/change-trojan-qouta
+    rm -rf /root/clearcache
+    rm -rf /root/clearlog
+    rm -rf /root/del-bot-notif
+    rm -rf /root/gz13051
+    rm -rf /root/gz22349
+    rm -rf /root/izinsc
+    rm -rf /root/Lt-on-off
+    rm -rf /root/udp
+}
+netfilter-persistent
+clear
+echo -e "\e[38;5;162m┌───────────────────────────────────────────┐\033[0m "
+echo -e " \e[1;97;104m               UPDATE SCRIPT         \e[0m"
+echo -e "\e[38;5;162m└───────────────────────────────────────────┘\033[0m "
+echo -e ""
+echo -e "  \033[1;91m Ipdate version Script\033[1;37m"
+fun_bar 'res1'
+echo -e "\e[38;5;162m└───────────────────────────────────────────┘\033[0m "
+echo -e ""
+echo -e "\033[92mWait in  2 sec..\033[0m"
+sleep 2
+}
+
+
+
+cL
+######################################
+# // USERNAME IZIN IPP
+rm -f /usr/bin/user
+username=$(curl -sS https://raw.githubusercontent.com/LambarVpn/permission/main/ip | grep $MYIP | awk '{print $2}')
+echo "$username" >/usr/bin/user
+rm -f /usr/bin/e
+valid=$(curl -sS https://raw.githubusercontent.com/LambarVpn/permission/main/ip | grep $MYIP | awk '{print $3}')
+echo "$valid" > /usr/bin/e
+
+clear
+######################################
+# // DETAIL ORDER IZIN IP
+#username=$(cat /usr/bin/user)
+oid=$(cat /usr/bin/ver)
+exp=$(cat /usr/bin/e)
+######################################
+clear
+# // DAYS LEFT
+d1=$(date -d "$valid" +%s)
+d2=$(date -d "$today" +%s)
+#certifacate=$(((d1 - d2) / 86400))
+clear
+######################################
+# // GETTINGS SYSTEM
+ssh_service=$(/etc/init.d/ssh status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+
+dropbear_service=$(/etc/init.d/dropbear status | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+
+haproxy_service=$(systemctl status haproxy | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+
+xray_service=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+
+nginx_service=$(systemctl status nginx | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+
+clear
+######################################
+# // RUNNING SSH
+######################################
+if [[ $ssh_service == "running" ]]; then
+   status_ssh="\033[92;1mON${NC}"
+else
+   status_ssh="\033[91;1mOFF${NC} "
+fi
+######################################
+# // RUNNING WEBSOCKET
+######################################
+ssh_ws=$( systemctl status ws | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [[ $ssh_ws == "running" ]]; then
+    status_ws_epro="\033[92;1mON${NC}"
+else
+    status_ws_epro="\033[91;1mOFF${NC} "
+fi
+######################################
+# RUNNING HAPROXY
+######################################
+if [[ $haproxy_service == "running" ]]; then
+   status_haproxy="\033[92;1mON${NC}"
+else
+   status_haproxy="\033[91;1mOFF${NC} "
+fi
+######################################
+# RUNNING XRAY
+######################################
+if [[ $xray_service == "running" ]]; then
+   status_xray="\033[92;1mON${NC}"
+else
+   status_xray="\033[91;1mOFF${NC} "
+fi
+######################################
+# RUNNING NGINX
+######################################
+if [[ $nginx_service == "running" ]]; then
+   status_nginx="\033[92;1mON${NC}"
+else
+   status_nginx="\033[91;1mOFF${NC} "
+fi
+######################################
+# RUNNING DROPBEAR
+######################################
+if [[ $dropbear_service == "running" ]]; then
+   status_dropbear="\033[92;1mGOO0D!${NC}"
+else
+   status_dropbear="\033[91;1mCRAZY${NC} "
+fi
+
+
+# // LUNATIC-TUNNELING | LT PROJECT
+# // WHATSAPP : 085955333616
+# // TELEGRAM : @LunaticTunneling
+# // Chanell  : @TunnelingLunatic
+# • |=========================================================================|
+# • | Develover : LT | PROJECT [ BANDUNG BARAT ] [ SAGULING ] [ INDONESIA ]   |
+# • | March     : 14 | 2015 | coding Tools | MT MANAGER | ACOODER | QUICT EDIT|
+# • |=========================================================================|
+
+# // color validity
+# // color format 38
+runn='\e[38;5;14m'
+acc='\e[38;5;146m'
+LO='\e[38;5;162m'
+UK='\e[97;1m'  # UNGU KOLOT
+BK='\e[38;5;196m' # BEREM KOLOT
+R1='\e[38;5;155m' # HEJO SEMU BODAS
+R2=' \e[97;1m'  # HEJO LIME / APEL
+BC='\e[38;5;195m' # BODAS CERAH PISAN
+HU='\e[38;5;115m' # HEJO SEMU ABU
+UB='\e[38;5;147m' # UNGU KABODASAN
+KT='\e[38;5;187m' # KONENG TARIGU
+Suffix='\e[0m'
+R1R="\e[31m"
+
+# Count total Account vmess
+vme_total=$(grep -E "^#vme-user# " "/etc/xray/vme.json" | sed -E 's/^#vme-user# ([^ ]+).*/\1/' | awk '!seen[$0]++')
+VME=$(echo "$vme_total" | wc -l)
+
+
+# Count total Account vless
+vle_total=$(grep -E "^#vle-user# " "/etc/xray/vle.json" | sed -E 's/^#vle-user# ([^ ]+).*/\1/' | awk '!seen[$0]++')
+VLE=$(echo "$vle_total" | wc -l)
+
+
+# Count total Account trojan
+tro_total=$(grep -E "^#tro-user# " "/etc/xray/tro.json" | sed -E 's/^#tro-user# ([^ ]+).*/\1/' | awk '!seen[$0]++')
+TRO=$(echo "$tro_total" | wc -l)
+
+
+# Count total Account shadowsocks
+ssr_total=$(grep -E "^#ssr-user# " "/etc/xray/ssr.json" | sed -E 's/^#ssr-user# ([^ ]+).*/\1/' | awk '!seen[$0]++')
+SSR=$(echo "$ssr_total" | wc -l)
+
+
+# Count total Account noobzvpns
+nob_total=$(grep -E "^#nob# " "/etc/noobzvpns/.noobzvpns" | sed -E 's/^#nob# ([^ ]+).*/\1/' | awk '!seen[$0]++')
+NOB=$(echo "$nob_total" | wc -l)
+
+
+# Count total Account ssh openvpn
+ssh_total=$(grep -E "^#ssh# " "/etc/ssh/.ssh.db" | sed -E 's/^#ssh# ([^ ]+).*/\1/' | awk '!seen[$0]++')
+SSH=$(echo "$ssh_total" | wc -l)
+
+
+
+
+
+K="\e[0;33m"
+#C=\e[96;1m"
+G="\e[0;36m"
+W="\e[0;37m"
+reset="\e[0m"
+x="\e[0;32m"
+Kx="\e[0;35m"
+Gg="\e[92;1m"
+Ct="\e[41;1m"
+t="\e[97;1m"
+reset="\e[0m"
+f="\e[0;36m"
+b="\e[0;31m"
+vt="\e[44;97;1m"
+ON="\e[92;1mON\e[0m"
+GOOOD="\e[92;1mGOOOD\e[0m"
+function cL(){
+clear
+}
+cL
+
+function LTX(){
+echo -e "${G} —————————————————————————————————————————${reset}"
+}
+
+function LTX_v2(){
+echo -e "${G}      ———————————————————————————————${reset}"
+}
+
+
+LTX
+echo -e "${G}|${reset}${Ct}              LAMBAR  TUNNEL              ${G}| ${reset}"
+LTX
+
+#echo -e "${W} SSH: $status_ssh | ${W}XRAY: $status_xray | ${W}NGINX: $status_nginx | $status_dropbear${reset}"
+echo -e "${W}  SSH: $ON | ${W}XRAY: $ON | ${W}NGINX: $ON | $GOOOD${reset}"
+LTX
+echo -e "${G}│${K} 1.) PROTOCOL MANAGER \e[97;1m[ \e[0;32m9 protocol \e[97;1m]${reset}"
+echo -e "${G}│${K} 2.) BACKUP & RESTORE                             ${reset}"
+echo -e "${G}│${K} 3.) THEMES MANAGERS                              ${reset}"
+echo -e "${G}│${K} 4.) TELEGRAM BOT                                 ${reset}"
+echo -e "${G}│${K} 5.) FEATURES                                     ${reset}"
+echo -e "${G}│${b} x.) Exit                                         ${reset}"
+LTX
+
+echo -e "${f}               DAFTAR ACCOUNT             ${reset}"
+LTX_v2
+echo -e "${Kx}          SSH/UDP    : $SSH  ${reset}"
+echo -e "${Kx}          VMESS      : $VME  ${reset}"
+echo -e "${Kx}          VLESS       : $VLE  ${reset}"
+echo -e "${Kx}          TROJAN     : $TRO  ${reset}"
+echo -e "${Kx}          SSR-Libev    : $SSR  ${reset}"
+echo -e "${Kx}          NoobZvpns  : $NOB  ${reset}"
+LTX_v2
+
+LTX
+# // Select Display
+echo -e "\e[0;32m Just Input \e[0;33m1-5 \e[0;32mor \e[0;31mx\e[0m"
+read -p " > " ltx
+case $ltx in
+1) clear ; m-prt ;;
+2) clear ; m-bkp ;;
+3) clear ; m-tme ;;
+4) clear ; m-bot ;;
+5) clear ; m-ftr ;;
+*) exit ;;
+esac
