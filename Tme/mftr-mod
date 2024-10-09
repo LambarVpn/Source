@@ -1,0 +1,65 @@
+#!/bin/bash
+clear
+function LTX() {
+echo -e "\e[5;36m  ————————————————————————————————————————\e[0m"
+}
+
+
+function Lunatix_Banner() {
+echo -e "\e[5;36m  ————————————————————————————————————————\e[0m"
+echo -e " \e[5;36m|\e[0;35m             Sett Features    \e[0m          \e[5;36m|\e[0m"
+echo -e "\e[5;36m  ————————————————————————————————————————\e[0m"
+}
+
+function Menu_Features() {
+Lunatix_Banner
+echo -e " \e[5;36m |\e[0m \e[97;1m 1.) Info Running SerVice             \e[5;36m|  \e[0m"
+echo -e " \e[5;36m |\e[0m \e[97;1m 2.) Info Restart SerVice             \e[5;36m|  \e[0m"
+echo -e " \e[5;36m |\e[0m \e[97;1m 3.) AutoReboot Vps Server            \e[5;36m|  \e[0m"
+echo -e " \e[5;36m |\e[0m \e[97;1m 4.) Get Vps Monitoring               \e[5;36m|  \e[0m"
+
+echo -e " \e[5;36m |\e[0m \e[97;1m 5.) Checking SpeedTest               \e[5;36m|  \e[0m"
+echo -e " \e[5;36m |\e[0m \e[97;1m 6.) Autodelete Account Expired       \e[5;36m|  \e[0m"
+echo -e " \e[5;36m |\e[0m \e[97;1m 7.) Changes Banner ssh               \e[5;36m|  \e[0m"
+echo -e " \e[5;36m |\e[0m \e[97;1m 8.) Changes Domain server            \e[5;36m|  \e[0m"
+echo -e " \e[5;36m |\e[0m \e[97;1m 9.) Fixx Haproxy Domain              \e[5;36m|  \e[0m"
+
+echo -e " \e[5;36m |\e[0m \e[97;1m10.) Fixx Nginx Domain                \e[5;36m|  \e[0m"
+echo -e " \e[5;36m |\e[0m \e[97;1m11.) Checking Bandwith vps            \e[5;36m|  \e[0m"
+echo -e " \e[5;36m |\e[0m \e[97;1m12.) Themes Managers                  \e[5;36m|  \e[0m"
+echo -e " \e[5;36m |\e[0m \e[97;1m13.) Update Script New Version        \e[5;36m|  \e[0m"
+echo -e " \e[5;36m |\e[0m \e[97;1m14.) Encrypt & Decrypt                \e[5;36m|  \e[0m"
+echo -e " \e[5;36m |\e[0m \e[97;1m x.) Exit                             \e[5;36m|  \e[0m"
+LTX
+}
+
+
+
+
+
+
+function Select_Menu() {
+read -p "  Just Input 1-20 or xx :  " Ltt
+case $Ltt in
+1) clear ; run ;;
+2) clear ; reset ;;
+3) clear ; autoreboot ;;
+4) clear ; gotop ;;
+5) clear ; speedtest ;;
+6) clear ; xp ;;
+7) clear ; nano /etc/banner.txt ;;
+8) clear ; change-domain ;;
+9) clear ; fixhap ;;
+10) clear ; fixcert ;;
+11) clear ; vnstat ;;
+12) clear ; m-tme ;;
+13) clear ; updatesc ;;
+14) clear ; ENCSSL ;;
+*) welcome ;;
+esac
+}
+
+
+# // Call Function
+Menu_Features
+Select_Menu
